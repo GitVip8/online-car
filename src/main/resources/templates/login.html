@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/dist/element-ui/element.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}"/>
+    <title>系统登录</title>
+</head>
+<body>
+<div class="title">
+    <h1>网约车平台</h1>
+</div>
+<div class="login-container">
+    <div id="login-form">
+        <el-form :model="user" label-position="top" ref="login">
+            <el-form-item label="账号" prop="username">
+                <el-input v-model="user.username" size="small"></el-input>
+            </el-form-item>
+            <el-form-item label="密码" prop="password">
+                <el-input type="password" v-model="user.password" size="small"></el-input>
+            </el-form-item>
+            <el-button type="primary" size="small" @click="doLogin"
+                       :disabled="!user.username || !user.password || disable">登录
+            </el-button>
+        </el-form>
+    </div>
+</div>
+<script th:src="@{/dist/vue/vue.js}"></script>
+<script th:src="@{/dist/element-ui/element.js}"></script>
+<script th:src="@{/dist/axios/axios.js}"></script>
+<script th:src="@{/js/common/login.js}"></script>
+</body>
+</html>

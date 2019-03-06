@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 0;
+    /*background-image: url("/images/car.png");*/
+}
+
+.login-container {
+    width: 300px;
+    margin: calc(50vh - 240px) auto 0 auto;
+    padding: 20px 40px;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.title {
+    position: absolute;
+    text-align: center;
+    top: 40px;
+    width: 100%;
+}

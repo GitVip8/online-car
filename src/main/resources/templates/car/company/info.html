@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout/adminLayout">
+<head>
+    <title>公司基本信息</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="condition-container">
+        <el-form :inline="true" :model="condition">
+            <el-form-item label="测试1">
+                <el-input v-model="condition.test1" size="small"></el-input>
+            </el-form-item>
+            <el-form-item label="测试1">
+                <el-select v-model="condition.test2" size="small">
+                    <el-option label="区域一" value="shanghai"></el-option>
+                    <el-option label="区域二" value="beijing"></el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item>
+                <el-button size="small" type="primary">查询</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+    <div>
+        <el-table size="small"
+                  :data="tableData"
+                  border
+                  style="width: 100%">
+            <el-table-column v-for="(column,index) in tableColumn" :key="index"
+                             :prop="column.name" :label="column.label"
+                             :width="column.width < 1?'':(column.width + 'px')"
+            >
+            </el-table-column>
+        </el-table>
+        <div class="page-container">
+            <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="page.currentPage"
+                    :page-sizes="[10, 20,30, 50]"
+                    :page-size="page.size"
+                    layout="sizes, prev, next, jumper,total"
+                    :total="page.total">
+            </el-pagination>
+        </div>
+    </div>
+</div>
+</body>
+<th:block layout:fragment="body-script">
+    <script th:src="@{/js/car/info.js}"></script>
+</th:block>
+</html>

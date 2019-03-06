@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.w3.org/1999/xhtml" lang="zh">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title th:text="${application.name}"></title>
+        <link rel="stylesheet" type="text/css" th:href="@{/dist/font-awesome/css/font-awesome.min.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/dist/element-ui/element.css}"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
+        <!-- 载入子页面的样式 -->
+        <th:block layout:fragment="body-style"></th:block>
+    </head>
+    <body>
+        <div id="____root____" v-cloak>
+            <el-container>
+                <el-aside :width="isMenuCollapse__?'64px':'230px'">
+                    <div class="title">
+                        <!--<img src="/image/123.png">--> 网约车平台
+                    </div>
+                    <div class="app-nav">
+                        <el-scrollbar>
+                            <el-menu :collapse="isMenuCollapse__">
+                                <el-submenu v-for="(menu,pIndex) in menu__" :index="pIndex + ''" :key="pIndex">
+                                    <template slot="title">
+                                        <i :class="(menu.icon?menu.icon:'el-icon-menu') + ' margin-right5'"></i>
+                                        <span>{{menu.name}}</span>
+                                    </template>
+                                    <el-menu-item v-if="menu.child" v-for="(child,cIndex) in menu.child"
+                                                  :index="pIndex + '_' + cIndex" :key="cIndex">
+                                        <i :class="(child.icon?child.icon:'el-icon-menu') + ' margin-right5'"></i>
+                                        <span>{{child.name}}</span>
+                                    </el-menu-item>
+                                </el-submenu>
+                            </el-menu>
+                        </el-scrollbar>
+                    </div>
+                </el-aside>
+                <el-container>
+                    <el-header height="60px">
+                        <span class="fa fa-bars" @click="handleSwitchMenu__"></span>
+                        <span>
+                            <el-dropdown trigger="click" @command="handleCommand__">
+                                <span>
+                                    <i class="fa fa-user margin-right5"></i>
+                                    <span th:text=" ${session.SPRING_SECURITY_CONTEXT.authentication == null?'':session.SPRING_SECURITY_CONTEXT.authentication.principal.name}"
+                                          class="el-dropdown-link"></span>
+                                    <i class="el-icon-arrow-down el-icon--right"></i>
+                                </span>
+                                <el-dropdown-menu slot="dropdown">
+                                    <el-dropdown-item command="cp" icon="fa fa-cog"><i
+                                            class="fa fa-gears margin-right5"></i>修改密码
+                                    </el-dropdown-item>
+                                    <el-dropdown-item command="so" :divided="true" icon="el-icon-circle-plus"
+                                                      @click="signOut__"><i
+                                            class="fa fa-sign-out margin-right5"></i>登出
+                                    </el-dropdown-item>
+                                </el-dropdown-menu>
+                            </el-dropdown>
+                        </span>
+                    </el-header>
+                    <el-main>
+                        <el-breadcrumb separator="/">
+                            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                            <el-breadcrumb-item v-if="__location__.pathname.length > 1" v-for="p in __location__.pathname.substring(1).split('/')">{{p}}</el-breadcrumb-item>
+                          <!--  <el-breadcrumb-item>
+                                <a href="/">活动管理</a>
+                            </el-breadcrumb-item>
+                            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+                            <el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
+                        </el-breadcrumb>
+                        <div class="container">
+                            <div class="content" layout:fragment="content">
+
+                            </div>
+                        </div>
+                    </el-main>
+                </el-container>
+            </el-container>
+            <el-dialog
+                    title="修改密码"
+                    :visible.sync="password__.passwordDialogVisible__"
+                    width="30%">
+                <span>修改密码</span>
+                <span slot="footer" class="dialog-footer">
+                    <el-button @click="password__.passwordDialogVisible__ = false" size="small">取 消</el-button>
+                    <el-button type="primary" size="small" @click="doChangePassword__">保 存</el-button>
+                </span>
+            </el-dialog>
+        </div>
+        <script th:src="@{/dist/vue/vue.js}"></script>
+        <script th:src="@{/dist/element-ui/element.js}"></script>
+        <script th:src="@{/dist/axios/axios.js}"></script>
+        <script th:src="@{/js/common/menu.js}"></script>
+        <!-- 载入子页面的样式 -->
+        <th:block layout:fragment="body-script"></th:block>
+
+        <script th:src="@{/js/common/layout-admin.js}"></script>
+    </body>
+</html>
