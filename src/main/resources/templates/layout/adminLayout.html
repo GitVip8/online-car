@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title th:text="${application.name}"></title>
         <link rel="stylesheet" type="text/css" th:href="@{/dist/font-awesome/css/font-awesome.min.css}"/>
         <link rel="stylesheet" type="text/css" th:href="@{/dist/element-ui/element.css}"/>
         <link rel="stylesheet" type="text/css" th:href="@{/css/app.css}"/>
@@ -22,7 +21,8 @@
                     </div>
                     <div class="app-nav">
                         <el-scrollbar>
-                            <el-menu :collapse="isMenuCollapse__">
+                            <el-menu :collapse="isMenuCollapse__" @select="menuSelect__"
+                                     :default-active="activeMenuIndex__">
                                 <el-submenu v-for="(menu,pIndex) in menu__" :index="pIndex + ''" :key="pIndex">
                                     <template slot="title">
                                         <i :class="(menu.icon?menu.icon:'el-icon-menu') + ' margin-right5'"></i>
@@ -64,12 +64,9 @@
                     <el-main>
                         <el-breadcrumb separator="/">
                             <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                            <el-breadcrumb-item v-if="__location__.pathname.length > 1" v-for="p in __location__.pathname.substring(1).split('/')">{{p}}</el-breadcrumb-item>
-                          <!--  <el-breadcrumb-item>
-                                <a href="/">活动管理</a>
+                            <el-breadcrumb-item v-if="breadcrumbItems__.length > 0" v-for="(p,bIndex) in breadcrumbItems__" :key="bIndex">
+                                {{p}}
                             </el-breadcrumb-item>
-                            <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-                            <el-breadcrumb-item>活动详情</el-breadcrumb-item>-->
                         </el-breadcrumb>
                         <div class="container">
                             <div class="content" layout:fragment="content">

@@ -18,15 +18,17 @@ import java.util.Date;
 @Table(name = "base_info_vehicle")
 public class BaseInfoVehicleEntity {
 
-    @Id
+/*
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long id;*/
 
 
     /**
-     * 公司标识
+     * 公司
      */
-    private String companyId;
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private BaseInfoCompanyEntity company;
     /**
      * 车辆所在城市
      */
@@ -34,6 +36,7 @@ public class BaseInfoVehicleEntity {
     /**
      * 车辆号牌
      */
+    @Id
     private String vehicleNo;
     /**
      * 车牌颜色
@@ -74,6 +77,7 @@ public class BaseInfoVehicleEntity {
     /**
      * 车辆注册日期
      */
+    @Column(name = "certify_date_a")
     private Long certifyDateA;
     /**
      * 车辆燃料类型
@@ -110,6 +114,7 @@ public class BaseInfoVehicleEntity {
     /**
      * 车辆初次登记日期
      */
+    @Column(name = "certify_date_b")
     private Long certifyDateB;
     /**
      * 车辆检修状态

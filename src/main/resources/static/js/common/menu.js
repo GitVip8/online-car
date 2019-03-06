@@ -74,7 +74,7 @@ var __menu__ = [
             {
                 id: 3,
                 name: '车辆信息查询',
-                path: '',
+                path: '/car/basic/car-info',
                 icon: 'fa fa-taxi'
             },
 
