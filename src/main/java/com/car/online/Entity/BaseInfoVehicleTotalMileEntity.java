@@ -18,6 +18,8 @@ import java.util.Date;
 @Entity
 @Table(name = "base_info_vehicle_total_mile")
 public class BaseInfoVehicleTotalMileEntity {
+
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

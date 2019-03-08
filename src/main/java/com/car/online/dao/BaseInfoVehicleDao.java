@@ -1,6 +1,8 @@
 package com.car.online.dao;
 
 import com.car.online.Entity.BaseInfoVehicleEntity;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
@@ -16,4 +18,6 @@ public interface BaseInfoVehicleDao extends JpaRepository<BaseInfoVehicleEntity,
      */
     BaseInfoVehicleEntity findOneByVehicleNo(String vehicleNo);
 
+    @Override
+    Page<BaseInfoVehicleEntity> findAll(Pageable pageable);
 }

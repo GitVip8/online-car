@@ -147,6 +147,10 @@ body {
     padding: 20px;
 }
 
+.el-dialog__footer {
+    padding: 10px 20px;
+}
+
 .page-container {
     margin-top: 15px;
     width: 100%;
@@ -157,3 +161,25 @@ body {
 .el-table thead {
     color: #676767;
 }
+
+
+/*<!-- component info-table style start -->*/
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.info-table tr td {
+    border: 1px solid #ccc;
+    padding: 10px 15px;
+}
+
+.info-table tr td:nth-child(2n+1) {
+    max-width: 150px;
+    background: #f9f9f9;
+}
+
+/*
+<!--component info-table style start  -->*/

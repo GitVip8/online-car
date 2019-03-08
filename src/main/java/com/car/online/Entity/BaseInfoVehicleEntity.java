@@ -1,6 +1,7 @@
 package com.car.online.Entity;
 
 
+import com.car.admin.entity.RegionCode;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -16,11 +17,7 @@ import java.util.Date;
 @Data
 @Entity
 @Table(name = "base_info_vehicle")
-public class BaseInfoVehicleEntity {
-
-/*
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;*/
+public class BaseInfoVehicleEntity<oneToOme> {
 
 
     /**
@@ -32,7 +29,9 @@ public class BaseInfoVehicleEntity {
     /**
      * 车辆所在城市
      */
-    private Integer address;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "address")
+    private RegionCode address;
     /**
      * 车辆号牌
      */
@@ -184,5 +183,11 @@ public class BaseInfoVehicleEntity {
      * 数据来源
      */
     private String dataSource;
+
+    @Transient
+    private BaseInfoVehicleTotalMileEntity totalMile;
+
+    @Transient
+    private BaseInfoVehicleInsuranceEntity insurance;
 
 }

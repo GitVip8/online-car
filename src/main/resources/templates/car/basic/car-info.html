@@ -32,7 +32,7 @@
                              :width="column.width < 1?'':(column.width + 'px')"
             >
             </el-table-column>
-            <el-table-column width="60px" label="详情" align="center">
+            <el-table-column width="60px" label="详情" align="center" @sort-change="handelSortChange">
                 <template slot-scope="scope">
                     <el-button
                             size="mini" icon="el-icon-edit" circle type="primary"
@@ -48,8 +48,8 @@
                            :current-page="page.currentPage"
                            :page-sizes="[10, 20,30, 50]"
                            :page-size="page.size"
-                           layout="sizes, prev, pager,next, jumper,total"
-                           :total="page.total">
+                           layout="total, sizes, prev, pager, next, jumper"
+                           :total="page.totalElements">
             </el-pagination>
         </div>
     </div>
@@ -57,17 +57,28 @@
                title="车辆详情"
                :visible.sync="dialogVisible"
                width="80%">
-        <div class="dialog-content" style="height:70vh">
-            111111
+        <div class="dialog-content" v-if="selected">
+            <el-tabs type="card" v-if="selected" value="first">
+                <el-tab-pane label="基本信息" name="first">
+                    <info-table :cols="2" :items="infoTableItems"></info-table>
+                </el-tab-pane>
+
+                <el-tab-pane label="保险信息" name="second">
+
+                </el-tab-pane>
+                <el-tab-pane label="里程信息" name="third">
+
+                </el-tab-pane>
+            </el-tabs>
         </div>
         <span slot="footer" class="dialog-footer">
-    <el-button size="small" @click="dialogVisible = false">取 消</el-button>
     <el-button type="primary" size="small" @click="dialogVisible = false">确 定</el-button>
   </span>
     </el-dialog>
 </div>
 </body>
 <th:block layout:fragment="body-script">
+    <script th:src="@{/component/info-table.js}"></script>
     <script th:src="@{/js/car/basic/car-info.js}"></script>
 </th:block>
 </html>
