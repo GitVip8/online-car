@@ -8,6 +8,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+
 /**
  * @author sun, 2019/3/6
  * @version V1.0
@@ -20,6 +22,7 @@ public class IVehicleService implements VehicleService {
     BaseInfoVehicleDao dao;
 
     @Override
+    @Transactional
     public Page<BaseInfoVehicleEntity> findAll(Pageable pageable) {
         return dao.findAll(pageable);
     }
