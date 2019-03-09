@@ -175,13 +175,59 @@ var __mixin__ = {
                         }
                     ]
                 }
+            ];
+            this.insuranceTableItems = [
+                {
+                    name: "车辆保险信息",
+                    properties: [
+                        {
+                            key: '保险公司名称',
+                            value: this.selected.insurance.insurCom
+                        },
+                        {
+                            key: '保险号',
+                            value: this.selected.insurance.insurNum
+                        },
+                        {
+                            key: '保险类型',
+                            value: this.selected.insurance.insurType
+                        },
+                        {
+                            key: '保险金额',
+                            value: this.selected.insurance.insurCount
+                        },
+                        {
+                            key: '保险生效时间',
+                            value: this.selected.insurance.insurEff
+                        },
+                        {
+                            key: '保险到期时间',
+                            value: this.selected.insurance.insurExp
+                        }
+                    ]
+
+                }
+            ];
+            this.totalMileTableItem = [
+                {
+                    name: "车辆里程信息",
+                    properties: [
+                        {
+                            key: "行驶总里程",
+                            value: this.selected.totalMile.totalMile
+                        }
+                    ]
+                }
             ]
-        },
+        }
     },
     data: {
-        selected: null,
-        infoTableItems: [],
-        dialogVisible: false,
+        selected: null, //当前选择车辆
+        infoTableItems: [], //车辆基本信息
+        insuranceTableItem: {}, //车辆保险信息
+        totalMileTableItem: {}, //车辆里程信息
+        dialogVisible: false, //dialog是否可见
+        //查询列表显示字段
         tableColumn: [
             {
                 name: 'vehicleNo',
@@ -198,20 +244,24 @@ var __mixin__ = {
                 width: 0,
             }
         ],
-
+        // table 的数据
         tableData: [],
+        // 查询条件
         condition: {
             test1: '',
             test2: '',
         },
+        //分页信息
         page: {
             currentPage: 1,
             size: 10
         },
+        //排序信息
         sort: {}
     },
     methods:
         {
+            //查询所有
             find: function () {
                 var _this = this;
                 axios.get('/car/basic/car-info/list', {params: this.page}).then(function (r) {
@@ -224,22 +274,31 @@ var __mixin__ = {
                             currentPage: (d.number + 1),
                             size: d.size
                         }
-                    }
+                    } else
+                        _this.$message.error(r.date.msg);
                 })
             }
             ,
             handleDetail: function (i, row) {
-                this.selected = row;
+                //查询其他信息（里程、保险）
+                var _this = this;
+                axios.get('/car/basic/car-info/' + row.vehicleNo).then(function (r) {
+                    if (r.data.code === 0) {
+                        row.insurance = r.data.data.insurance;
+                        row.totalMile = r.data.data.totalMile;
+                        _this.selected = row;
+                    } else {
+                        _this.$message.error(r.date.msg);
+                    }
+                })
                 this.dialogVisible = true;
             }
             ,
             handleSizeChange: function (a) {
-                console.info(this.page)
                 this.find();
             }
             ,
             handleCurrentChange: function (b) {
-                console.info(this.page)
                 this.find();
             },
             handelSortChange: function () {

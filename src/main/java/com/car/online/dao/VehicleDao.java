@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * 车辆基本信息DAO
  */
-public interface BaseInfoVehicleDao extends JpaRepository<BaseInfoVehicleEntity, String> {
+public interface VehicleDao extends JpaRepository<BaseInfoVehicleEntity, String> {
 
     /**
      * 根据车牌号查找汽车

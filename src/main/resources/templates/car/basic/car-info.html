@@ -64,10 +64,10 @@
                 </el-tab-pane>
 
                 <el-tab-pane label="保险信息" name="second">
-
+                    <info-table :cols="1" :items="insuranceTableItems"></info-table>
                 </el-tab-pane>
                 <el-tab-pane label="里程信息" name="third">
-
+                    <info-table :cols="1" :items="totalMileTableItem"></info-table>
                 </el-tab-pane>
             </el-tabs>
         </div>
