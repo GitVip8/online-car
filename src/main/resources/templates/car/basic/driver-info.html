@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorate="layout/adminLayout" lang="zh">
+<head>
+    <title>驾驶员信息查询</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="condition-container">
+        <el-form :inline="true" :model="condition">
+            <el-form-item label="驾驶员姓名">
+                <el-input v-model="condition.test1" size="small"></el-input>
+            </el-form-item>
+            <el-form-item label="公司">
+                <el-select v-model="condition.test2" size="small">
+                    <el-option label="滴滴" value="didi"></el-option>
+                    <el-option label="优步" value="uber"></el-option>
+                </el-select>
+            </el-form-item>
+            <el-form-item>
+                <el-button size="small" type="primary">查询</el-button>
+            </el-form-item>
+        </el-form>
+    </div>
+    <div>
+        <el-table size="small"
+                  :data="tableData"
+                  border
+                  style="width: 100%">
+            <el-table-column v-for="(column,index) in tableColumn" :key="index"
+                             :prop="column.name" :label="column.label"
+                             :width="column.width < 1?'':(column.width + 'px')"
+            >
+            </el-table-column>
+            <el-table-column width="60px" label="详情" align="center" @sort-change="handelSortChange">
+                <template slot-scope="scope">
+                    <el-button
+                            size="mini" icon="el-icon-edit" circle type="primary"
+                            @click="handleDetail(scope.$index, scope.row)" title="详情">
+                    </el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <div class="page-container">
+            <el-pagination background
+                           @size-change="handleSizeChange"
+                           @current-change="handleCurrentChange"
+                           :current-page="page.currentPage"
+                           :page-sizes="[10, 20,30, 50]"
+                           :page-size="page.size"
+                           layout="total, sizes, prev, pager, next, jumper"
+                           :total="page.totalElements">
+            </el-pagination>
+        </div>
+    </div>
+    <el-dialog top="10vh"
+               title="驾驶员详情"
+               :visible.sync="dialogVisible"
+               width="80%">
+        <div class="dialog-content" v-if="selected">
+            <el-tabs type="card" v-if="selected" value="first">
+                <el-tab-pane label="基本信息" name="first">
+                    <info-table :cols="2" :items="infoTableItems"></info-table>
+                </el-tab-pane>
+
+                <el-tab-pane label="培训信息" name="second">
+                    <info-table :cols="1" :items="insuranceTableItems"></info-table>
+                </el-tab-pane>
+                <el-tab-pane label="移动终端信息" name="third">
+                    <info-table :cols="1" :items="totalMileTableItem"></info-table>
+                </el-tab-pane>
+            </el-tabs>
+        </div>
+        <span slot="footer" class="dialog-footer">
+    <el-button type="primary" size="small" @click="dialogVisible = false">确 定</el-button>
+  </span>
+    </el-dialog>
+</div>
+</body>
+<th:block layout:fragment="body-script">
+    <script th:src="@{/component/info-table.js}"></script>
+    <script th:src="@{/js/car/basic/driver-info.js}"></script>
+</th:block>
+</html>

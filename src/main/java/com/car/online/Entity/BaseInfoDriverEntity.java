@@ -16,10 +16,6 @@ import java.util.Date;
 @Data
 @Table(name = "base_info_driver")
 public class BaseInfoDriverEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     /**
      * 公司标识
      */
@@ -83,6 +79,7 @@ public class BaseInfoDriverEntity {
     /**
      * 机动车驾驶证号
      */
+    @Id
     private String licenseId;
     /**
      * 机动车驾驶证扫描件文件编号

@@ -81,7 +81,7 @@ var __menu__ = [
             {
                 id: 4,
                 name: '驾驶员信息查询',
-                path: '',
+                path: '/car/basic/driver-info',
                 icon: 'fa fa-drivers-license'
             },
 
