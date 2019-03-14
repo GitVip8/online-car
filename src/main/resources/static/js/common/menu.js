@@ -68,7 +68,7 @@ var __menu__ = [
             {
                 id: 2,
                 name: '服务机构信息查询',
-                path: '',
+                path: '/car/basic/service-info',
                 icon: 'fa fa-rss-square'
             },
             {
@@ -103,7 +103,7 @@ var __menu__ = [
                 {
                     id: 1,
                     name: '订单信息查询',
-                    path: '',
+                    path: '/car/operation/order-info',
                     icon: 'fa fa-shopping-bag'
                 },
                 {

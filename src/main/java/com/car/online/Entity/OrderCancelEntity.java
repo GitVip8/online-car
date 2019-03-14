@@ -17,9 +17,6 @@ import java.util.Date;
 @Entity
 @Table(name = "order_cancel")
 public class OrderCancelEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     /**
      * 公司标识
      */
@@ -29,8 +26,9 @@ public class OrderCancelEntity {
      */
     private Integer address;
     /**
-     * 订单编号
+     * 订单号
      */
+    @Id
     private String orderId;
     /**
      * 订单时间

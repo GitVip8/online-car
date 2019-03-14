@@ -17,9 +17,7 @@ import java.util.Date;
 @Data
 @Entity
 public class OrderCreateEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+
     /**
      * 公司标识
      */
@@ -31,6 +29,7 @@ public class OrderCreateEntity {
     /**
      * 订单编号
      */
+    @Id
     private String orderId;
     /**
      * 预计用车时间

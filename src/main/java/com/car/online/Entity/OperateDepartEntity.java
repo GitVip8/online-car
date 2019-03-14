@@ -4,6 +4,7 @@ package com.car.online.Entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
@@ -19,18 +20,16 @@ import java.util.Date;
 @Table(name = "operate_depart")
 public class OperateDepartEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
 
     /**
      * 公司标识
      */
+
     private String companyId;
     /**
      * 订单号
      */
+    @Id
     private String orderId;
     /**
      * 机动车驾驶证号

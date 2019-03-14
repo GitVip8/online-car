@@ -18,18 +18,16 @@ import java.util.Date;
 @Data
 @Entity
 public class OperateArriveEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
 
     /**
      * 公司标识
      */
     private String companyId;
+
     /**
      * 订单号
      */
+    @Id
     private String orderId;
     /**
      * 车辆到达经度

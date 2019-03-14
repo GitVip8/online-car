@@ -3,7 +3,7 @@ package com.car.admin.utils;
 import com.car.admin.entity.Result;
 
 public class R {
-    public static Object success(Object object) {
+    public static Result success(Object object) {
         Result result = new Result();
         result.setCode(0);
         result.setMsg("成功");
