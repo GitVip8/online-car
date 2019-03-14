@@ -254,7 +254,9 @@ var __mixin__ = {
         //分页信息
         page: {
             currentPage: 1,
-            size: 10
+            size: 10,
+            totalPages: 1,
+            totalElements: 0,
         },
         //排序信息
         sort: {}

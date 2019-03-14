@@ -1,7 +1,5 @@
 package com.car.admin.config;
 
-import com.car.admin.service.RegionCodeService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -16,8 +14,8 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class ContextListener implements ServletContextListener {
 
-    @Autowired
-    RegionCodeService regionCodeService;
+  /*  @Autowired
+    RegionCodeService regionCodeService;*/
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {

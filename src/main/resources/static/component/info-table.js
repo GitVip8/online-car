@@ -18,7 +18,7 @@ if (Vue) {
             }
         },
         template:
-            '<div>' +
+            '<div v-if="items">' +
                 '<table class="info-table" v-for="(item,index0) in items" :key="index0">' +
                     '<tr>' +
                         '<td :colspan="2*cols">{{item.name}}</td>' +

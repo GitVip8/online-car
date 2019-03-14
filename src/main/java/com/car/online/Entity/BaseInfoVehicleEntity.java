@@ -1,7 +1,6 @@
 package com.car.online.Entity;
 
 
-import com.car.admin.entity.RegionCode;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -29,9 +28,7 @@ public class BaseInfoVehicleEntity<oneToOme> {
     /**
      * 车辆所在城市
      */
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "address")
-    private RegionCode address;
+    private Integer address;
     /**
      * 车辆号牌
      */
