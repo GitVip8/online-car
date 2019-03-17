@@ -2,6 +2,7 @@ package com.car.online.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * @author sun, 2019/3/5
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @description: 公司相关
  */
 
-@Controller
+@RestController
 public class CompanyController {
 
     @RequestMapping("/car/company/info")

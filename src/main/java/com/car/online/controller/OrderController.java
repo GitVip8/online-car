@@ -6,10 +6,7 @@ import com.car.online.dao.OrderInfoDao;
 import com.car.online.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
 
@@ -20,7 +17,7 @@ import javax.transaction.Transactional;
  */
 
 
-@Controller
+@RestController
 public class OrderController {
 
     @Autowired

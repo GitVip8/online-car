@@ -1,4 +1,4 @@
-package com.car.admin.auth;
+package com.car.admin.config.oauth;
 
 import com.car.admin.entity.IGrantedAuthority;
 import com.car.admin.entity.User;
@@ -49,7 +49,6 @@ public class SysUserDetailsService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         User user = sysUserService.findUser(s);
         if (user == null) throw new UsernameNotFoundException("用户不存在");
-        logger.info("user [" + s + "] login.");
         List<GrantedAuthority> authorities = new ArrayList<>();
         authorities.add(new IGrantedAuthority("USER"));
         user.setGrantedAuthorities(authorities);

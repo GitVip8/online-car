@@ -14,21 +14,13 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class ContextListener implements ServletContextListener {
 
-  /*  @Autowired
-    RegionCodeService regionCodeService;*/
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-
-        sce.getServletContext().setAttribute("name", "网约车系统");
     }
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
 
     }
-
-    // private void initRegionCode(){
-    //RegionCodeService.region = regionCodeService.findAll();
-    //}
 }

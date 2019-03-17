@@ -1,4 +1,4 @@
-package com.car.admin.auth;
+package com.car.admin.config.oauth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;

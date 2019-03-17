@@ -1,10 +1,14 @@
 package com.car.admin.controller;
 
+import com.car.admin.utils.R;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author sun, 2019/3/2
@@ -13,25 +17,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 
 
-@Controller
+@RestController
+@RequestMapping("/api")
 public class publicController {
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
-    public String toLoginPage() {
-        return "login.html";
-    }
 
-  /*  @RequestMapping(value = "/current", method = RequestMethod.GET)
-    @ResponseBody
-    public String getCurrentUser() {
-        Authentication au = SecurityContextHolder.getContext().getAuthentication();
-        return "login.html";
-    }*/
-
-
-    @RequestMapping(value = "/dashboard", method = RequestMethod.GET)
-    public String toDashboard() {
-        Authentication au = SecurityContextHolder.getContext().getAuthentication();
-        return "index.html";
+    @RequestMapping("/user/current")
+    public Object getCurrentUser(HttpServletRequest req) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return R.success(authentication);
     }
 }

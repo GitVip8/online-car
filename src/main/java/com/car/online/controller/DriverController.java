@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
  * @description: 驾驶员controller
  */
 
-@Controller
+@RestController
 public class DriverController {
 
 

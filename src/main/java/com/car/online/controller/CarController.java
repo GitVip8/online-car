@@ -5,10 +5,7 @@ import com.car.admin.utils.R;
 import com.car.online.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author sun, 2019/3/6
@@ -16,7 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @description: 车辆相关controller
  */
 
-@Controller
+@RestController
 public class CarController {
 
     @Autowired
