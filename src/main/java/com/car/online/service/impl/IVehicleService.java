@@ -6,11 +6,12 @@ import com.car.online.dao.VehicleInsuranceDao;
 import com.car.online.dao.VehicleTotalMileDao;
 import com.car.online.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -31,10 +32,14 @@ public class IVehicleService implements VehicleService {
     @Autowired
     VehicleTotalMileDao vehicleTotalMileDao;
 
+
     @Override
-    @Transactional
-    public Page<BaseInfoVehicleEntity> findAll(Pageable pageable) {
-        return dao.findAll(pageable);
+    public Page<BaseInfoVehicleEntity> findAll(Pageable pageable, BaseInfoVehicleEntity entity) {
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withMatcher("vehicleNo", ExampleMatcher.GenericPropertyMatchers.contains())
+                .withMatcher("ownerName", ExampleMatcher.GenericPropertyMatchers.contains());
+        Example<BaseInfoVehicleEntity> example = Example.of(entity, matcher);
+        return dao.findAll(example, pageable);
     }
 
     @Override

@@ -20,10 +20,6 @@ public class DriverController {
     @Autowired
     DriverService driverService;
 
-    @RequestMapping(value = "/car/basic/driver-info", method = RequestMethod.GET)
-    public String toDriver() {
-        return "car/basic/driver-info.html";
-    }
 
     /**
      * 查询驾驶员基本信息

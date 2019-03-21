@@ -1,5 +1,8 @@
 package com.car.online.controller;
 
+import com.car.admin.utils.R;
+import com.car.online.service.CompanyService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,9 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CompanyController {
 
-    @RequestMapping("/car/company/info")
-    public String toCompanyInfo() {
-        return "car/company/info.html";
+
+    @Autowired
+    CompanyService companyService;
+
+    @RequestMapping("/car/company/list")
+    public Object listCompany() {
+        return R.success(companyService.find2Dic());
     }
 
 }

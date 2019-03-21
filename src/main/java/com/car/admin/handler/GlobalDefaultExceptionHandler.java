@@ -19,6 +19,7 @@ public class GlobalDefaultExceptionHandler {
     @ResponseBody
     public ResponseDTO defaultExceptionHandler(Exception e) {
         logger.error(e.getMessage());
+        e.printStackTrace();
         return ResponseDTO.builder().code(500).msg(e.getMessage()).build();
     }
 

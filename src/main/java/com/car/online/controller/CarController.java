@@ -1,11 +1,14 @@
 package com.car.online.controller;
 
-import com.car.admin.utils.PageUtil;
+import com.car.admin.entity.PostParameter;
 import com.car.admin.utils.R;
+import com.car.online.Entity.BaseInfoCompanyEntity;
+import com.car.online.Entity.BaseInfoVehicleEntity;
 import com.car.online.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
+
 
 /**
  * @author sun, 2019/3/6
@@ -20,26 +23,14 @@ public class CarController {
     VehicleService vehicleService;
 
     /**
-     * 车辆信息查询首页
-     *
-     * @return
-     */
-    @RequestMapping(value = "/car/basic/car-info")
-    public String toCarIndex() {
-        return "car/basic/car-info.html";
-
-    }
-
-
-    /**
      * 查询车辆基本信息
      *
      * @return
      */
-    @RequestMapping(value = "/car/basic/car-info/list")
+    @RequestMapping(value = "/car/basic/car-info/list", method = RequestMethod.POST)
     @ResponseBody
-    public Object findAllVehicle(@RequestParam int currentPage, @RequestParam int size) {
-        return R.success(vehicleService.findAll(PageUtil.create(currentPage, size)));
+    public Object findAllVehicle(@RequestBody PostParameter<BaseInfoVehicleEntity> postParameter) {
+        return R.success(vehicleService.findAll(postParameter.getPage(), postParameter.getCondition()));
     }
 
 
