@@ -1,7 +1,9 @@
 package com.car.online.controller;
 
+import com.car.admin.entity.PostParameter;
 import com.car.admin.entity.Result;
 import com.car.admin.utils.R;
+import com.car.online.Entity.OrderInfo;
 import com.car.online.dao.OrderInfoDao;
 import com.car.online.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +36,7 @@ public class OrderController {
     @RequestMapping("/car/operation/order-info/list")
     @ResponseBody
     @Transactional
-    public Result listOrder(@RequestParam int currentPage, @RequestParam int size) {
+    public Result listOrder(@RequestBody PostParameter<OrderInfo> postParameter) {
         return R.success(dao.findAll());
     }
 

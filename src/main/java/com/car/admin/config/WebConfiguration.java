@@ -17,7 +17,7 @@ public class WebConfiguration implements WebMvcConfigurer {
     @Value("${http.allowed-origins}")
     String allowedOrigin;
 
-    @Override
+   /* @Override
     public void addCorsMappings(CorsRegistry registry) {
 
 
@@ -25,10 +25,10 @@ public class WebConfiguration implements WebMvcConfigurer {
 
         registry.addMapping("/**")
                 .allowedOrigins(allowedOrigins)
-                .allowedMethods("*")
+                .allowedMethods("GET","POST")
                 .allowedHeaders("")
                 .maxAge(3600)
                 .allowCredentials(true);
 
-    }
+    }*/
 }

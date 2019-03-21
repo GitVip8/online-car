@@ -15,9 +15,10 @@ public interface VehicleService {
      * 查询所有
      *
      * @param pageable
+     * @param entity
      * @return
      */
-    Page<BaseInfoVehicleEntity> findAll(Pageable pageable);
+    Page<BaseInfoVehicleEntity> findAll(Pageable pageable, BaseInfoVehicleEntity entity);
 
     /**
      * 查询车辆其他信息
