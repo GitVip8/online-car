@@ -17,11 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name = "base_info_driver_app")
 public class BaseInfoDriverAppEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    
     /**
      * 公司标识
      */
@@ -33,6 +29,7 @@ public class BaseInfoDriverAppEntity {
     /**
      * 机动车驾驶证号
      */
+    @Id
     private String licenseId;
     /**
      * 驾驶员手机号

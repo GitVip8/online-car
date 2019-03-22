@@ -16,9 +16,6 @@ import java.util.Date;
 @Data
 @Entity
 public class SharePayEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     /**
      * 公司标识
@@ -35,6 +32,7 @@ public class SharePayEntity {
     /**
      * 乘客合乘订单号
      */
+    @Id
     private String orderId;
     /**
      * 驾驶员手机号

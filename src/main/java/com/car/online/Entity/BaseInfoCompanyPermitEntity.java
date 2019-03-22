@@ -18,13 +18,10 @@ import java.util.Date;
 @Data
 public class BaseInfoCompanyPermitEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     /**
      * 公司标识
      */
+    @Id
     private String companyId;
     /**
      * 许可地行政区划代码

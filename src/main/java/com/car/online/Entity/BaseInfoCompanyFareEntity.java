@@ -19,13 +19,10 @@ import java.util.Date;
 @Data
 public class BaseInfoCompanyFareEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     /**
      * 公司标识
      */
+    @Id
     private String companyId;
     /**
      * 行政区划代码

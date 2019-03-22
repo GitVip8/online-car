@@ -18,14 +18,11 @@ import java.util.Date;
 public class BaseInfoCompanyPayEntity {
 
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
     /**
      * 公司标识
      */
-
+    @Id
     private String companyId;
     /**
      * 银行或者非银行支付机构名称

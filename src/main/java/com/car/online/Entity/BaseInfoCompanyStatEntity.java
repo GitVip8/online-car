@@ -17,15 +17,11 @@ import java.util.Date;
 @Data
 @Table(name = "base_info_company_stat")
 public class BaseInfoCompanyStatEntity {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    
     /**
      * 公司标识
      */
+    @Id
     private String companyId;
     /**
      * 平台注册网约车辆数

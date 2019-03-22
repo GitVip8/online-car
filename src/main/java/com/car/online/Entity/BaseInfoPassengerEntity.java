@@ -17,10 +17,6 @@ import java.util.Date;
 @Table(name = "base_info_passenger")
 public class BaseInfoPassengerEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
     /**
      * 公司标识
      */
@@ -32,6 +28,7 @@ public class BaseInfoPassengerEntity {
     /**
      * 乘客手机号
      */
+    @Id
     private String passengerPhone;
     /**
      * 乘客称谓

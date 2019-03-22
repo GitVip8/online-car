@@ -17,15 +17,10 @@ import java.util.Date;
 @Data
 @Entity
 public class ShareCompanyEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
     /**
      * 公司标识
      */
+    @Id
     private String companyId;
     /**
      * 公司名称

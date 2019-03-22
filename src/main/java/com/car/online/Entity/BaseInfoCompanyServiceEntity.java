@@ -16,15 +16,11 @@ import java.util.Date;
 @Entity
 @Data
 public class BaseInfoCompanyServiceEntity {
-
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    
     /**
      * 公司标识
      */
+    @Id
     private String companyId;
     /**
      * 行政区划代码

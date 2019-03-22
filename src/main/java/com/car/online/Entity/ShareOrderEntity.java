@@ -17,12 +17,7 @@ import java.util.Date;
 @Entity
 @Table(name = "share_order")
 public class ShareOrderEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
+    
     /**
      * 公司标识
      */
@@ -38,6 +33,7 @@ public class ShareOrderEntity {
     /**
      * 乘客合乘订单号
      */
+    @Id
     private String orderId;
     /**
      * 预计上车时间

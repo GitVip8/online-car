@@ -17,11 +17,6 @@ import java.util.Date;
 @Data
 @Table(name = "rated_passenger")
 public class RatedPassengerEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
     /**
      * 公司标识
      */
@@ -29,6 +24,7 @@ public class RatedPassengerEntity {
     /**
      * 订单号
      */
+    @Id
     private String orderId;
     /**
      * 评价时间

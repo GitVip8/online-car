@@ -4,6 +4,7 @@ package com.car.online.Entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -15,8 +16,9 @@ import java.util.Date;
  */
 @Data
 @Entity
+@Embeddable
 @Table(name = "base_info_driver_educate")
-public class BaseInfoDriverEducateEntity {
+public class BaseInfoDriverEducateEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

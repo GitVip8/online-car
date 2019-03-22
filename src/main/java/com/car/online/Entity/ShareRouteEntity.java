@@ -18,9 +18,6 @@ import java.util.Date;
 @Entity
 @Data
 public class ShareRouteEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
 
 
     /**
@@ -34,6 +31,7 @@ public class ShareRouteEntity {
     /**
      * 驾驶员发起行程编号
      */
+    @Id
     private String routeId;
     /**
      * 驾驶员姓名

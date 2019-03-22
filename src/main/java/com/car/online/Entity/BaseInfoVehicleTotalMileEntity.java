@@ -19,12 +19,6 @@ import java.util.Date;
 @Table(name = "base_info_vehicle_total_mile")
 public class BaseInfoVehicleTotalMileEntity {
 
-    
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
     /**
      * 公司标识
      */
@@ -36,6 +30,7 @@ public class BaseInfoVehicleTotalMileEntity {
     /**
      * 车辆号牌
      */
+    @Id
     private String vehicleNo;
     /**
      * 行驶总里程

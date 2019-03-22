@@ -18,11 +18,6 @@ import java.util.Date;
 @Entity
 public class RatedPassengerComplaintEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-
     /**
      * 公司标识
      */
@@ -30,6 +25,7 @@ public class RatedPassengerComplaintEntity {
     /**
      * 订单号
      */
+    @Id
     private String orderId;
     /**
      * 投诉时间
