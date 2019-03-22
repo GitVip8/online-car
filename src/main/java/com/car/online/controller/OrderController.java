@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
+import java.util.LinkedHashMap;
 
 /**
  * @author sun, 2019/3/12
@@ -23,22 +24,22 @@ import javax.transaction.Transactional;
 public class OrderController {
 
     @Autowired
-    OrderInfoDao dao;
-
-    @Autowired
     OrderService orderService;
 
-    @RequestMapping("/car/operation/order-info")
-    public String toOrderIndex() {
-        return "car/operation/order-info.html";
-    }
-
-    @RequestMapping("/car/operation/order-info/list")
+  /*  @RequestMapping("/car/operation/order-info/list")
     @ResponseBody
     @Transactional
     public Result listOrder(@RequestBody PostParameter<OrderInfo> postParameter) {
         return R.success(dao.findAll());
+    }*/
+
+    @RequestMapping("/car/operation/order-info/list")
+    @ResponseBody
+    @Transactional
+    public Result listOrder(@RequestBody PostParameter<LinkedHashMap<String, Object>> postParameter) {
+        return R.success(orderService.listOrder(postParameter.getCondition(), postParameter.getPage()));
     }
+
 
     /**
      * 查询订单详细信息
