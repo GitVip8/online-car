@@ -28,5 +28,3 @@ spring:
       connection-test-query: select 1
 logging:
   path: ../logs
-http:
-  allowed-origins: http://127.0.0.1

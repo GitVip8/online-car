@@ -13,22 +13,4 @@ public class WebConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
 
     }
-
-    @Value("${http.allowed-origins}")
-    String allowedOrigin;
-
-   /* @Override
-    public void addCorsMappings(CorsRegistry registry) {
-
-
-        String[] allowedOrigins = allowedOrigin.split(",");
-
-        registry.addMapping("/**")
-                .allowedOrigins(allowedOrigins)
-                .allowedMethods("GET","POST")
-                .allowedHeaders("")
-                .maxAge(3600)
-                .allowCredentials(true);
-
-    }*/
 }
