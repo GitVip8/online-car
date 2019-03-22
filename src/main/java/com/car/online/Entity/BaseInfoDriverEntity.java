@@ -19,7 +19,9 @@ public class BaseInfoDriverEntity {
     /**
      * 公司标识
      */
-    private String companyId;
+    @ManyToOne
+    @JoinColumn(name = "company_id")
+    private BaseInfoCompanyEntity company;
     /**
      * 注册地行政区划代码
      */

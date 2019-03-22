@@ -11,7 +11,7 @@
  Target Server Version : 80015
  File Encoding         : 65001
 
- Date: 22/03/2019 21:49:11
+ Date: 22/03/2019 23:29:27
 */
 
 SET NAMES utf8mb4;
@@ -264,7 +264,7 @@ CREATE TABLE `base_info_driver`  (
 -- ----------------------------
 -- Records of base_info_driver
 -- ----------------------------
-INSERT INTO `base_info_driver` VALUES ('1', 130000, '李四', '13111111111', '1', 2, '3', '4', '5', '6', '8', '9', '12', '11', '111', '11', '111', '321', 123, 123, 123, 13, '12', '123', 123, 1, 1, 1, 1, 1, 1, 2, '2', 3, 4, '5', '6', '7', 7, 8, 12, '123', '2019-03-18', '123');
+INSERT INTO `base_info_driver` VALUES ('1', 220100, '李四', '13111111111', '1', 2, '3', '4', '5', '6', '8', '9', '12', '11', '111', '11', '111', '321', 123, 123, 123, 13, '12', '123', 123, 1, 1, 1, 1, 1, 1, 2, '2', 3, 4, '5', '6', '7', 7, 8, 12, '123', '2019-03-18', '123');
 
 -- ----------------------------
 -- Table structure for base_info_driver_app
@@ -290,7 +290,7 @@ CREATE TABLE `base_info_driver_app`  (
 -- ----------------------------
 -- Records of base_info_driver_app
 -- ----------------------------
-INSERT INTO `base_info_driver_app` VALUES ('4001', 1, '5', '9', 9, '9', 9, 9, 9, 9, '9', '2018-02-24', '9');
+INSERT INTO `base_info_driver_app` VALUES ('1', 1, '11', '9', 9, '9', 9, 9, 9, 9, '9', '2018-02-24', '9');
 
 -- ----------------------------
 -- Table structure for base_info_driver_educate
@@ -318,7 +318,8 @@ CREATE TABLE `base_info_driver_educate`  (
 -- ----------------------------
 -- Records of base_info_driver_educate
 -- ----------------------------
-INSERT INTO `base_info_driver_educate` VALUES (1, '4001', 1, '5', '1', 1, '1', '1', 1, 1, 1, '1', '2018-03-21', NULL);
+INSERT INTO `base_info_driver_educate` VALUES (1, '4001', 1, '11', '1', 20190101, '20190101', '20190106', 1, 1, 1, '1', '2018-03-21', NULL);
+INSERT INTO `base_info_driver_educate` VALUES (2, '4001', 1, '11', '1', 20190102, '20190102', '20190106', 1, 1, 1, '1', '2018-03-21', NULL);
 
 -- ----------------------------
 -- Table structure for base_info_driver_stat
